@@ -56,14 +56,30 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="py-24 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
+        <motion.div
+          className="absolute top-10 right-10 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
+          <span className="text-sm font-bold text-blue-600 uppercase tracking-wider">How It Works</span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Simple Process, Maximum Impact
           </h2>
@@ -79,11 +95,19 @@ export default function HowItWorks() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-8 rounded-3xl shadow-xl mb-8">
-              <Building2 className="w-12 h-12 mb-4" />
-              <h3 className="text-3xl font-bold mb-2">For Exhibitors</h3>
-              <p className="text-blue-100">Showcase your products and capture leads effortlessly</p>
-            </div>
+            <motion.div
+              className="bg-gradient-to-br from-blue-600 via-blue-600 to-indigo-700 text-white p-8 rounded-3xl shadow-xl mb-8 relative overflow-hidden group"
+              whileHover={{ scale: 1.02 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+              />
+              <div className="relative z-10">
+                <Building2 className="w-12 h-12 mb-4 group-hover:rotate-12 transition-transform duration-300" />
+                <h3 className="text-3xl font-bold mb-2">For Exhibitors</h3>
+                <p className="text-blue-100">Showcase your products and capture leads effortlessly</p>
+              </div>
+            </motion.div>
 
             <div className="space-y-6">
               {exhibitorSteps.map((step, index) => {
@@ -95,18 +119,22 @@ export default function HowItWorks() {
                     animate={isInView ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0, x: -30, scale: 0.95 }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.15, ease: "easeOut" }}
                     whileHover={{ x: 8, scale: 1.02 }}
-                    className="flex gap-4 items-start bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
+                    className="flex gap-4 items-start bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-blue-200 group"
                   >
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-blue-600" />
-                      </div>
+                      <motion.div
+                        className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-50 rounded-full flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300"
+                        whileHover={{ scale: 1.1, rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <Icon className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                      </motion.div>
                     </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
                         {index + 1}. {step.title}
                       </h4>
-                      <p className="text-gray-600">{step.description}</p>
+                      <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">{step.description}</p>
                     </div>
                   </motion.div>
                 );
@@ -120,11 +148,19 @@ export default function HowItWorks() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-gradient-to-br from-purple-500 to-pink-600 text-white p-8 rounded-3xl shadow-xl mb-8">
-              <UserCircle className="w-12 h-12 mb-4" />
-              <h3 className="text-3xl font-bold mb-2">For Attendees</h3>
-              <p className="text-purple-100">Discover exhibitors and build meaningful connections</p>
-            </div>
+            <motion.div
+              className="bg-gradient-to-br from-purple-600 via-purple-600 to-pink-700 text-white p-8 rounded-3xl shadow-xl mb-8 relative overflow-hidden group"
+              whileHover={{ scale: 1.02 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+              />
+              <div className="relative z-10">
+                <UserCircle className="w-12 h-12 mb-4 group-hover:rotate-12 transition-transform duration-300" />
+                <h3 className="text-3xl font-bold mb-2">For Attendees</h3>
+                <p className="text-purple-100">Discover exhibitors and build meaningful connections</p>
+              </div>
+            </motion.div>
 
             <div className="space-y-6">
               {attendeeSteps.map((step, index) => {
@@ -136,18 +172,22 @@ export default function HowItWorks() {
                     animate={isInView ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0, x: 30, scale: 0.95 }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.15, ease: "easeOut" }}
                     whileHover={{ x: -8, scale: 1.02 }}
-                    className="flex gap-4 items-start bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
+                    className="flex gap-4 items-start bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-purple-200 group"
                   >
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-purple-600" />
-                      </div>
+                      <motion.div
+                        className="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-50 rounded-full flex items-center justify-center group-hover:bg-purple-600 group-hover:text-white transition-all duration-300"
+                        whileHover={{ scale: 1.1, rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <Icon className="w-6 h-6 text-purple-600 group-hover:text-white transition-colors duration-300" />
+                      </motion.div>
                     </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors duration-300">
                         {index + 1}. {step.title}
                       </h4>
-                      <p className="text-gray-600">{step.description}</p>
+                      <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">{step.description}</p>
                     </div>
                   </motion.div>
                 );

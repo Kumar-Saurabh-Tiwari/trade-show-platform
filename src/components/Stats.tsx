@@ -45,18 +45,19 @@ function StatItem({ icon: Icon, value, suffix = '', label, delay }: StatItemProp
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay }}
-      className="text-center"
+      whileHover={{ scale: 1.05 }}
+      className="text-center group"
     >
       <motion.div
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        className="inline-flex p-4 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl mb-4 shadow-lg"
+        whileHover={{ scale: 1.15, rotate: 10 }}
+        className="inline-flex p-4 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 rounded-2xl mb-4 shadow-lg group-hover:shadow-2xl transition-shadow duration-300"
       >
-        <Icon className="w-8 h-8 text-white" />
+        <Icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
       </motion.div>
-      <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+      <div className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 mb-2 group-hover:from-blue-500 group-hover:to-purple-600 transition-all duration-300">
         {count.toLocaleString()}{suffix}
       </div>
-      <div className="text-gray-600 font-medium">{label}</div>
+      <div className="text-gray-600 font-medium group-hover:text-gray-900 transition-colors duration-300">{label}</div>
     </motion.div>
   );
 }
@@ -97,14 +98,43 @@ export default function Stats() {
   ];
 
   return (
-    <section ref={ref} className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="py-20 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
+      {/* Animated background */}
+      <motion.div
+        className="absolute inset-0 opacity-10 pointer-events-none"
+      >
+        <motion.div
+          className="absolute top-1/2 left-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+          }}
+        />
+        <motion.div
+          className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl"
+          animate={{
+            x: [0, -100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+          }}
+        />
+      </motion.div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <span className="text-sm font-bold text-blue-600 uppercase tracking-wider">Proven Results</span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Powering Connections Across the Globe
           </h2>

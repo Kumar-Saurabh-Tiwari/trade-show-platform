@@ -49,11 +49,35 @@ export default function Benefits() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+    <section ref={ref} className="py-24 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-900 relative overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
+        <motion.div
+          className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"
+          animate={{
+            x: [0, 50, 0],
+            y: [0, 100, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl"
+          animate={{
+            x: [0, -50, 0],
+            y: [0, -100, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,6 +87,7 @@ export default function Benefits() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <span className="text-sm font-bold text-blue-400 uppercase tracking-wider">Benefits</span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Your Competitive Edge at Every Event
           </h2>
@@ -80,18 +105,42 @@ export default function Benefits() {
                 initial={{ opacity: 0, scale: 0.85, y: 30 }}
                 animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.85, y: 30 }}
                 transition={{ duration: 0.6, delay: index * 0.12, ease: "easeOut" }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.2 } }}
                 className="group relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 blur transition-opacity duration-300" />
-                <div className="relative bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 h-full">
-                  <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${benefit.gradient} mb-6`}>
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-r ${benefit.gradient} rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300`}
+                  animate={{
+                    opacity: [0.2, 0.4, 0.2],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                  }}
+                />
+                <div className="relative bg-white/10 backdrop-blur-xl p-8 rounded-2xl border border-white/20 hover:border-white/40 transition-all h-full group-hover:bg-white/15">
+                  <motion.div
+                    className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${benefit.gradient} mb-6`}
+                    animate={{
+                      y: [0, -4, 0],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: index * 0.2,
+                    }}
+                    whileHover={{
+                      scale: 1.15,
+                      rotate: 10,
+                    }}
+                  >
                     <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-blue-400 transition-all duration-300">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                     {benefit.description}
                   </p>
                 </div>

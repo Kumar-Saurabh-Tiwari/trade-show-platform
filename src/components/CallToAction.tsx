@@ -10,21 +10,22 @@ export default function CallToAction() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} className="py-24 bg-white">
+    <section ref={ref} className="py-24 bg-gradient-to-b from-white via-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 40 }}
           animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.95, y: 40 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-12 md:p-16 shadow-2xl overflow-hidden"
+          className="relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-12 md:p-20 shadow-2xl overflow-hidden"
         >
           {/* Animated Background Elements */}
-          <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
             <motion.div
               className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full"
               animate={{
                 scale: [1, 1.2, 1],
                 opacity: [0.3, 0.5, 0.3],
+                x: [0, 20, 0],
               }}
               transition={{
                 duration: 4,
@@ -37,6 +38,7 @@ export default function CallToAction() {
               animate={{
                 scale: [1, 1.3, 1],
                 opacity: [0.2, 0.4, 0.2],
+                x: [0, -20, 0],
               }}
               transition={{
                 duration: 5,
@@ -55,12 +57,12 @@ export default function CallToAction() {
             >
               Start Building Better Connections Today
             </motion.h2>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-xl text-white/90 mb-10 max-w-2xl mx-auto"
+              className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed"
             >
               Join 50,000+ professionals who are already capturing more leads and closing more deals
             </motion.p>
@@ -72,20 +74,26 @@ export default function CallToAction() {
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(255, 255, 255, 0.3)" }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px -10px rgba(255, 255, 255, 0.4)",
+                }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                className="group px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2"
               >
                 Get Started Now
-                <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+                <motion.div animate={{ x: [0, 6, 0] }} transition={{ duration: 2, repeat: Infinity }}>
                   <ArrowRight className="w-5 h-5" />
                 </motion.div>
               </motion.button>
-              
+
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "rgba(255, 255, 255, 0.15)",
+                }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-transparent text-white rounded-lg font-semibold text-lg border-2 border-white hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center gap-2"
+                className="px-8 py-4 bg-white/10 text-white rounded-xl font-bold text-lg border-2 border-white/40 hover:border-white/60 transition-all duration-300 flex items-center gap-2 backdrop-blur-sm"
               >
                 <Mail className="w-5 h-5" />
                 Contact Sales

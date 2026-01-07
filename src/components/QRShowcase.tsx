@@ -177,7 +177,7 @@ export default function QRShowcase() {
             className="space-y-6"
           >
             {[
-              { num: "1", title: "Open Your App", desc: "Launch TradeConnect on your smartphone and access your unique QR code instantly.", color: "from-blue-100 to-blue-50", textColor: "text-blue-600" },
+              { num: "1", title: "Open Your App", desc: "Launch leadRecall on your smartphone and access your unique QR code instantly.", color: "from-blue-100 to-blue-50", textColor: "text-blue-600" },
               { num: "2", title: "Scan QR Code", desc: "Point your camera at the other person's QR code. The app will automatically detect and scan it.", color: "from-indigo-100 to-indigo-50", textColor: "text-indigo-600" },
               { num: "3", title: "Save Contact", desc: "All contact information is saved automatically to your account with timestamps and notes.", color: "from-purple-100 to-purple-50", textColor: "text-purple-600" }
             ].map((step, idx) => (

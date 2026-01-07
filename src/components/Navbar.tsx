@@ -21,6 +21,7 @@ export default function Navbar() {
     { label: 'Features', href: '#features' },
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Benefits', href: '#benefits' },
+    { label: 'Pricing', href: '#pricing' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -56,7 +57,7 @@ export default function Navbar() {
             <span className={`text-2xl font-black transition-colors duration-300 ${
               isScrolled ? 'text-gray-900' : 'text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]'
             }`}>
-              TradeConnect
+              leadRecall
             </span>
           </motion.div>
 

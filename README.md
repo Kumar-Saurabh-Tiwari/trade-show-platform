@@ -1,4 +1,4 @@
-# TradeConnect - Professional Trade Show Networking Platform
+# leadRecall - Professional Trade Show Networking Platform
 
 A modern, mobile-optimized landing page for a trade show platform that connects exhibitors and attendees through seamless networking features.
 
@@ -147,7 +147,7 @@ This project is licensed under the MIT License.
 ## 📞 Contact
 
 For questions or support, please contact:
-- Email: info@tradeconnect.com
+- Email: info@leadRecall.com
 - Phone: +1 (234) 567-890
 - Address: 123 Business Ave, New York, NY 10001
 

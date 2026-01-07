@@ -5,6 +5,7 @@ import Features from '@/components/Features';
 import QRShowcase from '@/components/QRShowcase';
 import HowItWorks from '@/components/HowItWorks';
 import Benefits from '@/components/Benefits';
+import Pricing from '@/components/Pricing';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 
@@ -23,6 +24,9 @@ export default function Home() {
       </section>
       <section id="benefits">
         <Benefits />
+      </section>
+      <section id="pricing">
+        <Pricing />
       </section>
       <section id="contact">
         <CallToAction />

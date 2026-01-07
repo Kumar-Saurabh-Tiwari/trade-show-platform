@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TradeConnect - Smart Trade Show Networking & Lead Capture Platform",
+  title: "leadRecall - Smart Trade Show Networking & Lead Capture Platform",
   description: "Transform your trade show experience with instant QR code networking, business card scanning, and powerful contact management. Connect exhibitors and attendees in seconds.",
 };
 

@@ -64,7 +64,7 @@ export default function Footer() {
               >
                 <Building2 className="w-8 h-8 text-blue-400 group-hover:text-blue-300 transition-colors" />
               </motion.div>
-              <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">TradeConnect</h3>
+              <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">leadRecall</h3>
             </div>
             <p className="text-gray-400 mb-6 hover:text-gray-300 transition-colors">
               Empowering professional networking at trade shows and events worldwide.
@@ -125,8 +125,8 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 group hover:text-blue-400 transition-colors">
                 <Mail className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <a href="mailto:info@tradeconnect.com" className="hover:underline">
-                  info@tradeconnect.com
+                <a href="mailto:info@leadRecall.com" className="hover:underline">
+                  info@leadRecall.com
                 </a>
               </li>
               <li className="flex items-start gap-3 group hover:text-blue-400 transition-colors">
@@ -161,7 +161,7 @@ export default function Footer() {
           className="flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-gray-400 text-sm hover:text-gray-300 transition-colors">
-            © {currentYear} TradeConnect. All rights reserved.
+            © {currentYear} leadRecall. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
